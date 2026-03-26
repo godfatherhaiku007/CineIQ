@@ -220,7 +220,7 @@ hr { border-color: var(--border); }
 @st.cache_data
 def load_data():
     df = pd.read_csv(
-        r"C:\Users\Godfather Haiku\Desktop\Internshala PGC\Capstone Project\omdb_movies_cleaned.csv",
+        r"omdb_movies_cleaned.csv",
         low_memory=False
     )
 
@@ -262,10 +262,9 @@ def load_data():
 # Loading Pre-Trained LightGBM Model, Scaler and Feature Names from Saved Files
 @st.cache_resource
 def load_models():
-    base  = r"C:\Users\Godfather Haiku\Desktop\Internshala PGC\Capstone Project"
-    lgb_model    = joblib.load(rf"{base}\lgb_model.pkl")
-    scaler_nn    = joblib.load(rf"{base}\scaler_nn.pkl")
-    all_features = joblib.load(rf"{base}\feature_names.pkl")
+    lgb_model    = joblib.load("lgb_model.pkl")
+    scaler_nn    = joblib.load("scaler_nn.pkl")
+    all_features = joblib.load("feature_names.pkl")
     return lgb_model, scaler_nn, all_features
 
 # Building TF-IDF Matrix for Content Based Similarity Matching
